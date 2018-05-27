@@ -1,0 +1,77 @@
+{
+  "name": "@atomspace/webextension",
+  "version": "0.2.0",
+  "description": "Neutrino preset for creating Webextensions projects",
+	"main": "src/index.js",
+  "scripts": {
+		"pretest": "npm run lint",
+		"lint": "neutrino lint"
+	},
+  "keywords": [
+    "web extension",
+    "webextension",
+		"neutrino",
+		"preset",
+		"neutrino-preset",
+		"webpack"
+  ],
+  "author": "Atom Space",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/atomspaceodua/atomspace-webextension/issues"
+  },
+  "homepage": "https://github.com/atomspaceodua/atomspace-webextension#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atomspaceodua/atomspace-webextension.git"
+  },
+  "dependencies": {
+   	"@neutrinojs/chunk": "~8.2.3",
+		"@neutrinojs/clean": "~8.2.3",
+		"@neutrinojs/copy": "~8.2.3",
+		"@neutrinojs/minify": "~8.2.3",
+		"@neutrinojs/style-loader": "~8.2.3",
+		"@neutrinojs/font-loader": "~8.2.3",
+		"@neutrinojs/image-loader": "~8.2.3",
+		"@neutrinojs/html-loader": "~8.2.3",
+		"@neutrinojs/env": "~8.2.3",
+		"@neutrinojs/hot": "~8.2.3",
+		"babel-polyfill": "6.26.0",
+		"core-js": "^2.5.0",
+		"deepmerge": "~2.0.1",
+		"arrify": "~1.0.1",
+		"opn": "~5.2.0",
+		"babel-loader": "~7.1.2",
+		"babel-preset-env": "~1.6.1",
+		"babel-plugin-syntax-dynamic-import": "~6.18.0",
+		"babel-plugin-transform-object-rest-spread": "~6.26.0",
+		"babel-plugin-transform-class-properties": "~6.24.1",
+		"webpack-livereload-plugin": "~1.2.0",
+		"generate-json-webpack-plugin": "~0.3.1",
+		"html-loader": "~0.5.1",
+		"extract-loader": "~2.0.1",
+		"file-loader": "~1.1.11",
+		"spawn-loader": "~4.0.0",
+		"posthtml-loader": "~1.0.1",
+		"posthtml-shorten": "~1.0.0",
+		"filemanager-webpack-plugin": "~1.0.26"
+  },
+  "devDependencies": {
+		"eslint": "~4.19.1",
+		"neutrino": "~8.2.3",
+		"@atomspace/eslint": "~2.1.0"
+	},
+	"peerDependencies": {
+		"neutrino": "^8.0.0"
+	},
+	"files": [
+		"src/*",
+		"README.md",
+		"LICENSE",
+		"package.json"
+	],
+	"engines": {
+		"node": ">=6.9.0",
+		"npm": ">=3.0.0"
+	}
+}
