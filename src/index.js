@@ -2,7 +2,6 @@ let path = require('path');
 
 let chunk = require('@neutrinojs/chunk');
 let clean = require('@neutrinojs/clean');
-let copy = require('@neutrinojs/copy');
 
 // let minify = require('@neutrinojs/minify')
 let styleLoader = require('@neutrinojs/style-loader');
@@ -17,6 +16,7 @@ let babel = require('./babel.js');
 let webextensionManifest = require('./webextension-manifest.js');
 let webextensionEntries = require('./webextension-entries.js');
 let webextensionPackager = require('./webextension-packager.js');
+let webextensionStatic = require('./webextension-static.js');
 let liveReload = require('./live-reload.js');
 let requireManifest = require('./utils/require-manifest');
 let merge = require('./utils/merge');
@@ -25,14 +25,11 @@ module.exports = function (neutrino, settings = {}) {
 	const NODE_MODULES = path.resolve(__dirname, '../node_modules');
 	const PROJECT_NODE_MODULES = path.resolve(process.cwd(), 'node_modules');
 	let config = neutrino.config;
-	let src = neutrino.options.source;
 	let testRun = (process.env.NODE_ENV === 'test');
 	let devRun = (process.env.NODE_ENV === 'development');
 	let lintRule = config.module.rules.get('lint');
 	let eslintLoader = lintRule && lintRule.uses.get('eslint');
-	let staticDirPath = path.join(src, 'static');
-	let localesDirPath = path.join(src, '_locales');
-	let manifest = requireManifest(src);
+	let manifest = requireManifest(neutrino.options.source);
 
 	if (!settings.browsers) {
 		settings.browsers = [
@@ -98,9 +95,6 @@ module.exports = function (neutrino, settings = {}) {
 			neutrino.options.tests,
 			require.resolve('./polyfills.js')
 		],
-		exclude: [
-			staticDirPath
-		],
 		browsers: settings.browsers
 	});
 	neutrino.use(styleLoader);
@@ -110,26 +104,7 @@ module.exports = function (neutrino, settings = {}) {
 	neutrino.use(webextensionEntries, manifest);
 	neutrino.use(webextensionManifest, manifest);
 	neutrino.use(webextensionPackager, manifest);
-	neutrino.use(copy, {
-		options: {
-			pluginId: 'copy-static'
-		},
-		patterns: [{
-			context: staticDirPath,
-			from: '**/*',
-			to: path.basename(staticDirPath)
-		}]
-	});
-	neutrino.use(copy, {
-		options: {
-			pluginId: 'copy-locales'
-		},
-		patterns: [{
-			context: localesDirPath,
-			from: '**/*',
-			to: path.basename(localesDirPath)
-		}]
-	});
+	neutrino.use(webextensionStatic, manifest);
 
 	if (!testRun) {
 		neutrino.use(chunk);

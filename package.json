@@ -28,7 +28,6 @@
   "dependencies": {
    	"@neutrinojs/chunk": "~8.2.3",
 		"@neutrinojs/clean": "~8.2.3",
-		"@neutrinojs/copy": "~8.2.3",
 		"@neutrinojs/minify": "~8.2.3",
 		"@neutrinojs/style-loader": "~8.2.3",
 		"@neutrinojs/font-loader": "~8.2.3",
@@ -47,6 +46,7 @@
 		"babel-plugin-transform-object-rest-spread": "~6.26.0",
 		"babel-plugin-transform-class-properties": "~6.24.1",
 		"webpack-livereload-plugin": "~1.2.0",
+		"copy-webpack-plugin": "~4.5.1",
 		"generate-json-webpack-plugin": "~0.3.1",
 		"html-loader": "~0.5.1",
 		"extract-loader": "~2.0.1",
