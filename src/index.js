@@ -12,15 +12,16 @@ let imageLoader = require('@neutrinojs/image-loader');
 let env = require('@neutrinojs/env');
 
 // let hotReload = require('./hot-reload.js')
-let babel = require('./babel.js');
-let webextensionManifest = require('./webextension-manifest.js');
-let webextensionEntries = require('./webextension-entries.js');
-let webextensionPackager = require('./webextension-packager.js');
-let webextensionStatic = require('./webextension-static.js');
-let liveReload = require('./live-reload.js');
+let babel = require('./babel');
+let webextensionManifest = require('./webextension-manifest');
+let webextensionEntries = require('./webextension-entries');
+let webextensionPackager = require('./webextension-packager');
+let webextensionStatic = require('./webextension-static');
+let liveReload = require('./live-reload');
 let requireManifest = require('./utils/require-manifest');
 let merge = require('./utils/merge');
 
+/* eslint-disable max-statements */
 module.exports = function (neutrino, settings = {}) {
 	const NODE_MODULES = path.resolve(__dirname, '../node_modules');
 	const PROJECT_NODE_MODULES = path.resolve(process.cwd(), 'node_modules');
@@ -127,3 +128,4 @@ module.exports = function (neutrino, settings = {}) {
 			}));
 	}
 };
+/* eslint-enable max-statements */
