@@ -1,11 +1,11 @@
 let path = require('path');
 
-let GenerateJsonPlugin = require('generate-json-webpack-plugin');
-let deepmerge = require('deepmerge');
+// let GenerateJsonPlugin = require('generate-json-webpack-plugin');
+// let deepmerge = require('deepmerge');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = function (neutrino, options = {}) {
-	const OPERA_MANIFEST_NAME = 'opera.manifest.json';
+	// const OPERA_MANIFEST_NAME = 'opera.manifest.json';
 	let output = path.resolve(neutrino.options.root, options.output || 'dist');
 	let prodRun = (process.env.NODE_ENV === 'production');
 	let { name, version } = neutrino.options.packageJson;

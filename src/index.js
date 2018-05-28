@@ -2,13 +2,10 @@ let path = require('path');
 
 let chunk = require('@neutrinojs/chunk');
 let clean = require('@neutrinojs/clean');
-
 // let minify = require('@neutrinojs/minify')
 let styleLoader = require('@neutrinojs/style-loader');
 let fontLoader = require('@neutrinojs/font-loader');
 let imageLoader = require('@neutrinojs/image-loader');
-
-// let htmlLoader = require('@neutrinojs/html-loader');
 let env = require('@neutrinojs/env');
 
 // let hotReload = require('./hot-reload.js')
@@ -21,7 +18,6 @@ let liveReload = require('./live-reload');
 let requireManifest = require('./utils/require-manifest');
 let merge = require('./utils/merge');
 
-/* eslint-disable max-statements */
 module.exports = function (neutrino, settings = {}) {
 	const NODE_MODULES = path.resolve(__dirname, '../node_modules');
 	const PROJECT_NODE_MODULES = path.resolve(process.cwd(), 'node_modules');
@@ -89,7 +85,6 @@ module.exports = function (neutrino, settings = {}) {
 
 	neutrino.use(env);
 
-	// neutrino.use(htmlLoader);
 	neutrino.use(babel, {
 		include: [
 			neutrino.options.source,
@@ -128,4 +123,3 @@ module.exports = function (neutrino, settings = {}) {
 			}));
 	}
 };
-/* eslint-enable max-statements */

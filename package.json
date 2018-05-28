@@ -59,7 +59,7 @@
   "devDependencies": {
     "eslint": "~4.19.1",
     "neutrino": "~8.2.3",
-    "@atomspace/eslint": "~2.1.0"
+    "@atomspace/eslint": "~2.1.1"
   },
   "peerDependencies": {
     "neutrino": "^8.0.0"

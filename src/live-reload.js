@@ -1,11 +1,9 @@
-
-
-let opn = require('opn');
+// let opn = require('opn');
 let hot = require('@neutrinojs/hot');
 let LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = function (neutrino, settings = {}) {
-	let openInBrowser = settings.open === undefined ? false : Boolean(settings.open);
+	// let openInBrowser = settings.open === undefined ? false : Boolean(settings.open);
 	let livereload = settings.hot === undefined ? true : Boolean(settings.hot);
 
 	neutrino.config
